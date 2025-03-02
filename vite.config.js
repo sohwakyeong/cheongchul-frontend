@@ -7,10 +7,11 @@ export default defineConfig({
   define: {
     global: 'globalThis',
   },
+  base:"./",
   server:{
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'https://www.cheongchul-eolam.shop/',
         changeOrigin: true,
         rewrite: path => path.replace('/api', '')
       }
