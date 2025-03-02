@@ -1,0 +1,85 @@
+.formData {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group label {
+  color: #6a6a6a;
+  font-weight: semibold;
+  font-size: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+  border: none;
+  background-color: #f8f8f8;
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.form-group textarea {
+  resize: none;
+  line-height: 30px;
+  height: 200px;
+}
+
+.buttonBox {
+  margin-top:10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.buttonBox > button {
+  width: 50%;
+  border: none;
+  font-size: 20px;
+  padding: 12px 10px;
+  border-radius: 5px;
+  margin:2px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.createBtn {
+  background-color: #5785fa;
+  color: white;
+}
+
+
+.categoryCustomSelect {
+  background-color: #f8f8f8;
+  font-size: medium;
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  margin-right: 5px;
+
+}
+
+.categoryCustomSelect::after {
+  content: "▼";
+  font-size: 12px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: black;
+  pointer-events: none;
+}
+
+.categoryCustomSelect.open::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+

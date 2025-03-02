@@ -1,0 +1,27 @@
+.MainHeader {
+    display: flex;
+    justify-content: space-evenly;
+    vertical-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #d9d9d9;}
+.logo {
+    vertical-align: baseline;
+    padding:13px 13px 0 0;
+}
+.searchBox {
+    background-image:url(search.png);
+    background-repeat: no-repeat;
+    padding:18px 30px;
+    background-position: 5px;
+    border-radius: 8px;
+    border: solid 1px #E0E0E0;
+    box-sizing: border-box;
+    width: 300px;
+    margin-top: 5px;
+}
+.mypageBtn {
+   border: none;
+   background-color: transparent;
+   cursor: pointer;
+}

@@ -1,0 +1,103 @@
+
+  .registerHeader {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .registerBox {
+    background-color:white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .registerMessage {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .registerForm {
+    display: flex;
+    width: 90%;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .registerForm input {
+    border-radius: 5px;
+    border: 1px solid #eae7e7;
+    background-color: #f9fafa;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    height: 40px;
+  }
+  
+  .registerForm input:focus {
+    outline: none;
+    border-color: #5785fa;
+  }
+  
+  .formToggle {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .formRadioBtn {
+    width: 47%;
+    height: 3rem;
+    border: 1px solid #eae7e7;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .formRadioBtn input[type="radio"] {
+    display: none;
+  }
+  
+  .formRadioBtn label {
+    display: block;
+    border-radius: 7px;
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
+    line-height: 45px;
+    background: #f9fafc;
+    color: #666;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .formRadioBtn input[type="radio"]:checked + label {
+    background: #5785fa;
+    color: white;
+  }
+  
+  .formRadioBtn label:hover {
+    color: #333;
+  }
+  
+  .registerSubmitBtn {
+    background-color: #5785fa;
+    color: white;
+    border: none;
+    width:  100%;
+    height: 3rem;
+    border-radius: 7px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .registerSubmitBtn:hover {
+    background-color: #f9fafc;
+    color: #666;
+  }
+  

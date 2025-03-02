@@ -1,0 +1,32 @@
+.actionMenu {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .activeBox img {
+    cursor: pointer;
+  }
+  
+  .dropdownMenu {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 8px 0;
+    list-style: none;
+    width: 120px;
+  }
+  
+  .dropdownMenu li {
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .dropdownMenu li:hover {
+    background: #f2f2f2;
+  }
+  

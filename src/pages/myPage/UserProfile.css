@@ -1,0 +1,76 @@
+.profileUpdateForm {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 20px;
+    font-size: 18px;
+  }
+.form-label {
+    display: block;
+  }
+  
+.formToggle {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0 16px 0;
+  }
+  
+.formRadioBtn {
+    width: 47%;
+    height: 3rem;
+    border: 1px solid #EAE7E7;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+.formRadioBtn input[type=radio] {
+    display: none;
+  }
+  
+.formRadioBtn label {
+    display: block;
+    border-radius: 7px;
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
+    line-height: 45px;
+    background: #F9FAFC;
+    color: #666;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+.formRadioBtn input[type=radio]:checked + label {
+    background: #5785FA;
+    color: #fff;
+  }
+  
+.formRadioBtn label:hover {
+    color: #333;
+  }
+.formInput {
+    border-radius: 5px;
+    border: none;
+    background-color: #EAE7E7;
+    font-size: 20px;
+    width: 100%;
+    height: 2.5rem;
+    margin-top: 16px;
+  }
+  .saveProfile {
+    background-color:#5785FA;
+    color: white;
+    border: none;
+    width: 100%;
+    height: 3rem;
+    border-radius: 7px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  .saveProfile:hover {
+    background-color:#F9FAFC;
+    color: #666;
+  }
+  
+  

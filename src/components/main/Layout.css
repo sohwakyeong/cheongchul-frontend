@@ -1,0 +1,19 @@
+#Layout {
+min-height: 100vh;
+}
+.content {
+    padding-bottom: 5rem;
+    overflow-y: auto;
+}
+
+footer {
+    position: fixed;  
+    bottom: 0;        
+    left: 50%;      
+    transform: translateX(-50%);
+    height: 5rem;
+    width:100%;
+    max-width: 500px;
+    background: white;
+    z-index: 100;
+}

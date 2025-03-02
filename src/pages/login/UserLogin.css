@@ -1,0 +1,77 @@
+.mainBox{
+    margin:70px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 40vh;
+}
+.loginMessage {
+  font-size: 25px;
+  font-weight: bold;
+  color:#6a6a6a;
+}
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 90%;
+    gap: 5px;
+  }
+  .loginForm input {
+    width: 95%;
+    height: 1.5rem;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+
+.footer{
+    margin-top: 20px;
+}
+.footer > a {
+    color: #6a6a6a;
+    text-decoration: none;
+    font-size: 15px;
+}
+.footer > a:not(:last-child):after {
+    content: "|";
+    margin: 5px; 
+    color: #6a6a6a;
+}
+.registerBtn{
+  box-sizing: border-box;
+    padding: 3px 6px;
+    border: 1px solid #e0e0e0;
+    font-size: 1rem;
+    color:black;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.registerBtn:hover {
+  background-color: #f9fafc;
+  color: #666;
+}
+
+.loginBtn {
+  background-color: #5785fa;
+  color: white;
+  border: none;
+  width:  100%;
+  height: 3rem;
+  border-radius: 7px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.loginBtn:hover {
+  background-color: #f9fafc;
+  color: #666;
+}
