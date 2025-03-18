@@ -42,7 +42,7 @@ const reducer = (state, action) => {
   }
 };
 
-const TutoringItems = ({ category ,sortType}) => {
+const TutoringItems = ({ category ,sortType,search}) => {
   const navigate = useNavigate();
   const [state, dispatch] = useReducer(reducer, initialState);
   const observerTarget = useRef();
@@ -71,7 +71,7 @@ const TutoringItems = ({ category ,sortType}) => {
     setLoading(true);
 
     try {
-      const API_URL = `api/board/all?page=${state.pageInfo.page}&size=3&category=${category}&sortType=${sortType}`;
+      const API_URL = `api/board/all?page=${state.pageInfo.page}&size=3&category=${category}&sortType=${sortType}&search=${encodeURIComponent(search)}`;
       const accessToken = localStorage.getItem("accessToken");
 
       const headers = accessToken
@@ -98,12 +98,19 @@ const TutoringItems = ({ category ,sortType}) => {
 
   useEffect(() => {
     dispatch({ type: "RESET_PAGE" });
-    fetchData();
-  }, [category,sortType]);
+    fetchData();  
+  }, [category, sortType]);
+  
+  useEffect(() => {
+    if (search.trim() !== "") {
+      dispatch({ type: "RESET_PAGE" });
+      fetchData();  
+    }
+  }, [search]); 
 
   useEffect(() => {
     fetchData();
-  }, [state.pageInfo.page, category]);
+  }, [state.pageInfo.page, category, sortType, search]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -180,3 +187,4 @@ const TutoringItems = ({ category ,sortType}) => {
 };
 
 export default TutoringItems;
+

@@ -3,9 +3,12 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import BoardPatchMenu from "../../components/board/BoardPatchMenu";
+import Bookmark from "../../components/board/Bookmark";
 import ChatButton from "../../components/board/ChatButton";
 import useLoadingStore from "../../store/useLoadingStore"; 
 import LoadingSpinner from "../../components/ui/LoadingSpinner";
+import { successToast } from "../../components/ui/ToastFunctions";
+import { errorToast } from "../../components/ui/ToastFunctions";
 
 const TutoringDetail = () => {
   const { fetchData } = useFetch();
@@ -42,30 +45,10 @@ const TutoringDetail = () => {
     onGetDetails();
   }, [id]);
 
-  const setBookmark = async () => {
-    try {
-      const method = detailData.bookmarked ? "DELETE" : "POST";
-
-      const result = await fetchData(`/api/bookmark/${id}`, method);
-
-      if (result.status === 201 || result.status === 200) {
-        setDetailData((prevState) => ({
-          ...prevState,
-          bookmarked: !prevState.bookmarked,
-        }));
-        alert(
-          result.status === 201
-            ? "북마크가 추가되었습니다"
-            : "북마크가 해지되었습니다."
-        );
-      } else {
-        throw new Error("error", result.status);
-      }
-    } catch (error) {
-      console.error("북마크 처리 오류", error);
-      alert(error.message);
-    }
-  };
+ const hanldeShare = () => {
+     const currentUrl = window.location.href;
+     navigator.clipboard.writeText(currentUrl).then(()=>successToast("링크가 복사되었습니다.").catch(console.error(errorToast("링크 복사가 실패하였습니다."))))
+  }
 
   return (
     <div className="DetailPages">
@@ -110,10 +93,8 @@ const TutoringDetail = () => {
           </div>
           <div className="contentBox">{detailData.content}</div>
           <div className="activeBtn">
-            <button>공유하기</button>
-            <button onClick={setBookmark}>
-              {detailData.bookmarked ? "찜 해제" : "찜하기"}
-            </button>
+            <button onClick={hanldeShare}>공유하기</button>
+            <Bookmark detailData={detailData} setDetailData={setDetailData}  id={id} fetchData={fetchData}  />
           </div>
           <ChatButton boardId={detailData.boardId} />
         </div>
