@@ -23,7 +23,7 @@ const useFetch = () => {
       
       if (!response.ok) {
         const errorData = await response.json();
-        return { status, data: errorData }; // 에러 데이터 반환
+        return { status, data: errorData };
       }
       const contentType = response.headers.get("content-type");
       if (contentType && contentType.startsWith("application/json")) {

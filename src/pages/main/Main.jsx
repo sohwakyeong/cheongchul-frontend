@@ -9,7 +9,7 @@ import { getToken } from "../../utils/authUtils";
 
 const Main = () => {
   const navigate = useNavigate();
-  const [category, setCategory] = useState("korean");
+  const [category, setCategory] = useState("all");
   const [sortType, setSortType] = useState("latest");
   const [search, setSearch] = useState("");
 

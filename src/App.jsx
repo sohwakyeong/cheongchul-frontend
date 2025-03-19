@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { Routes, Route,useNavigate } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./App.css";
 import Main from "./pages/main/Main";
 import MyPage from "./pages/myPage/MyPage";
@@ -14,15 +16,28 @@ import Chat from "./pages/chat/Chat";
 import useFetch from "./hooks/useFetch";
 import Layout from "./components/main/Layout";
 import UserRegister from "./pages/signUp/UserRegister";
-
+import { getToken, removeToken } from "./utils/authUtils"; 
 import RequireToken from "./utils/RequireToken";
 import ToastNotification from "./components/ui/ToastNotification";
 import { errorToast } from "./components/ui/ToastFunctions";
 
 
 function App() {
+  const queryClient = new QueryClient();
   const { fetchData } = useFetch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = getToken(); 
+    const isLogout = localStorage.getItem("isLogout");
+
+ if (!token && isLogout !== "true") { 
+      errorToast("세션이 만료되었습니다. 다시 로그인해주세요.");
+      removeToken();
+      navigate("/login");
+    }
+  }, [navigate]);
+
 
   const onCreate = async ({ title, content, category }) => {
     const postData = { title, content, category };
@@ -42,7 +57,7 @@ function App() {
   };
 
   return (
-    <>
+      <QueryClientProvider client={queryClient}>
      <ToastNotification />
       <Routes>
         <Route
@@ -86,9 +101,11 @@ function App() {
         <Route
           path="/detail/:id"
           element={
+            <RequireToken>
             <Layout>
               <TutoringDetail />
             </Layout>
+            </RequireToken>
           }
         />
         <Route
@@ -128,7 +145,7 @@ function App() {
         <Route path="*" element={<Notfound />} />
        
       </Routes>
-    </>
+    </QueryClientProvider>
   );
 }
 
