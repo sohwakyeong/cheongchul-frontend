@@ -21,31 +21,31 @@ const MainSwiper = () => {
       className="mySwiper"
     >
       <SwiperSlide>
-        <img src="banner1.png" alt="Banner 1" />
+        <img src="/banner1.png" alt="Banner 1" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="banner2.png" alt="Banner 2" />
+        <img src="/banner2.png" alt="Banner 2" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="banner3.png" alt="Banner 3" />
+        <img src="/banner3.png" alt="Banner 3" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="banner1.png" alt="Banner 1" />
+        <img src="/banner1.png" alt="Banner 1" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="banner2.png" alt="Banner 2" />
+        <img src="/banner2.png" alt="Banner 2" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="banner3.png" alt="Banner 3" />
+        <img src="/banner3.png" alt="Banner 3" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="banner1.png" alt="Banner 1" />
+        <img src="/banner1.png" alt="Banner 1" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="banner2.png" alt="Banner 2" />
+        <img src="/banner2.png" alt="Banner 2" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="banner3.png" alt="Banner 3" />
+        <img src="/banner3.png" alt="Banner 3" />
       </SwiperSlide>
     </Swiper>
   );

@@ -61,7 +61,7 @@ const TutoringItems = ({ category, sortType, search }) => {
             <div className="universityIdentify">
               <img
                 className="uniLogoImage"
-                src={item.universityImgUrl || "../defaultUnilogo.png"}
+                src={item.universityImgUrl || "/defaultUnilogo.png"}
                 alt="uniLogoImage"
               />
             </div>
@@ -72,14 +72,14 @@ const TutoringItems = ({ category, sortType, search }) => {
                 {item.authorUniversity} {item.authorDepartment}
               </p>
               <p className="category">
-                <img className="subjectSymbol" src="subject.png" alt="subjectSymbol" />
+                <img className="subjectSymbol" src="/subject.png" alt="subjectSymbol" />
                 전문과목: {options.find((opt) => opt.value === item.category)?.label || "알 수 없음"}
               </p>
             </div>
             <div className="bookMark">
               <img
                 className="bookMarkSymbol"
-                src={item.bookmarked ? "bookMark.png" : "bookMarkFalse.png"}
+                src={item.bookmarked ? "/bookMark.png" : "/bookMarkFalse.png"}
                 alt="bookMarkSymbol"
               />
             </div>
@@ -92,7 +92,7 @@ const TutoringItems = ({ category, sortType, search }) => {
             <LoadingSpinner />
           </div>
         )}
-        {!hasNextPage && <p className="nomoreData">더 이상 표시할 게시글이 없습니다.</p>}
+        {!isFetching &&!hasNextPage && <p className="nomoreData">더 이상 표시할 게시글이 없습니다.</p>}
       </div>
     </div>
   );

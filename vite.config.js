@@ -6,7 +6,7 @@ export default defineConfig({
   define: {
     global: "globalThis",
   },
-  base: "./",
+  base: "/",
   server: {
     proxy: {
       "/api": {

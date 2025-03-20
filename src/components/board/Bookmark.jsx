@@ -1,3 +1,5 @@
+import { errorToast } from "../ui/ToastFunctions";
+import { successToast } from "../ui/ToastFunctions";
 const Bookmark = ({ detailData, setDetailData, id, fetchData })=> {
     const setBookmark = async () => {
         try {
@@ -10,7 +12,7 @@ const Bookmark = ({ detailData, setDetailData, id, fetchData })=> {
               ...prevState,
               bookmarked: !prevState.bookmarked,
             }));
-            alert(
+            successToast(
               result.status === 201
                 ? "북마크가 추가되었습니다"
                 : "북마크가 해지되었습니다."
@@ -20,7 +22,7 @@ const Bookmark = ({ detailData, setDetailData, id, fetchData })=> {
           }
         } catch (error) {
           console.error("북마크 처리 오류", error);
-          alert(error.message);
+          errorToast(error.message);
         }
       };
       return (

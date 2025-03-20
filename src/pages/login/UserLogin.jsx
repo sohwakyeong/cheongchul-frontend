@@ -45,7 +45,7 @@ const UserLogin = () => {
       </div>
       <div className="mainBox">
         <div className="mainBox_logo">
-          <img src="accountLogo.png" />
+          <img src="/accountLogo.png" />
           <p className="loginMessage">이메일로 로그인해주세요.</p>
         </div>
         <form className="loginForm" onSubmit={handleSubmit}>

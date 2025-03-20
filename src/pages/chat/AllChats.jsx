@@ -6,6 +6,7 @@ import useFetch from "../../hooks/useFetch";
 import useLoadingStrore from "../../store/useLoadingStore";
 import LoadingSpinner from "../../components/ui/LoadingSpinner";
 
+
 const AllChats = () => {
   const navigate = useNavigate();
   const { fetchData } = useFetch();
@@ -45,7 +46,13 @@ const AllChats = () => {
       {isLoading?(
         <div className="loading-spinner-container show">
         <LoadingSpinner />
-      </div>):(
+      </div>): allChatsData.length === 0 ? (
+        <div className="noDataChat">
+          <img className= "chatroomImg" src="/icons.png" alt="chatroomImg"/>
+           <p className="noChatsMessage">과외 매칭을 위한 첫걸음, 메시지를 보내보세요!</p>
+        </div>
+     
+    ) :(
       <ul className="chatList">
         {allChatsData.map((chatRoom) => (
           <li
@@ -56,7 +63,7 @@ const AllChats = () => {
             <div className="chatInfo">
               <img
                 className="profileImg"
-                src={"./seoulu.png"}
+                src={chatRoom.universityImgUrl}
                 alt="User Profile"
               />
               <div className="chatDetails">

@@ -1,11 +1,13 @@
 
-import { useState} from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Editor.css";
 import useValidation from "../../hooks/useValidation";
 import { errorToast } from "../../components/ui/ToastFunctions";
 
 const Editor = ({ onSubmit,initialData ={}}) => {
   const { errors, validate } = useValidation();
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     title: initialData.title,
@@ -90,7 +92,7 @@ const Editor = ({ onSubmit,initialData ={}}) => {
         </div>
 
         <div className="buttonBox">
-          <button className="cancleBtn" type="button">
+          <button className="cancleBtn" type="button" onClick={()=> navigate(-1)}>
             작성취소
           </button>
           <button className="createBtn" type="submit">

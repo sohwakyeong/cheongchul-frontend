@@ -57,7 +57,7 @@ const MyPage = () => {
                   src={
                     memeberData.universityImgUrl
                       ? memeberData.universityImgUrl
-                      : "./defaultUnilogo.png"
+                      : "/defaultUnilogo.png"
                   }
                 />
               </div>
@@ -84,7 +84,7 @@ const MyPage = () => {
             <div className="banner">
               <div className="bannerBox">
                 <div>
-                  <img className="bannerImage" src="./icons.png" />
+                  <img className="bannerImage" src="/icons.png" />
                 </div>
                 <div className="bannerMessage">
                   <div>지금 프로필을 수정하고, 새로운 과외를 찾아보세요.</div>

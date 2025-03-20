@@ -72,7 +72,7 @@ const TutoringDetail = () => {
               src={
                 detailData.universityImgUrl
                   ? detailData.universityImgUrl
-                  : "../defaultUnilogo.png"
+                  : "/defaultUnilogo.png"
               }
             />
           </div>

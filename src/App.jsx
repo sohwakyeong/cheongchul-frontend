@@ -32,7 +32,7 @@ function App() {
     const isLogout = localStorage.getItem("isLogout");
 
  if (!token && isLogout !== "true") { 
-      errorToast("세션이 만료되었습니다. 다시 로그인해주세요.");
+      errorToast("세션이 만료, 다시 로그인해주세요.");
       removeToken();
       navigate("/login");
     }
@@ -47,7 +47,6 @@ function App() {
       postData
     );
     if (result.status === 201) {
-      console.log(result.data);
       navigate(`/detail/${result.data.boardId}`)
     } else if (result.status >= 400) {
       errorToast("글 작성이 실패하였습니다.");

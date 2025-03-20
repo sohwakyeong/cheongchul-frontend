@@ -44,7 +44,7 @@ const BookmarkBoards = ({setBookmarkCount}) => {
             <div className="universityIdentify">
               <img
                 className="uniLogoImage"
-                src={item.universityImg?item.universityImg:"./defaultUnilogo.png"}
+                src={item.universityImg?item.universityImg:"/defaultUnilogo.png"}
                 alt="uniLogoImage"
               />
             </div>
@@ -55,7 +55,7 @@ const BookmarkBoards = ({setBookmarkCount}) => {
               <p className="category">
                 <img
                   className="subjectSymbol"
-                  src="subject.png"
+                  src="/subject.png"
                   alt="subjectSymbol"
                 />
                 전문과목: {item.category}
@@ -64,7 +64,7 @@ const BookmarkBoards = ({setBookmarkCount}) => {
             <div className="bookMark">
               <img
                 className="bookMarkSymbol"
-                src={item.bookmarked ? "bookMark.png" : "bookMarkFalse.png"}
+                src={item.bookmarked ? "/bookMark.png" : "/bookMarkFalse.png"}
                 alt="bookMarkSymbol"
               />
             </div>

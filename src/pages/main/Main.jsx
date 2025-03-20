@@ -21,7 +21,7 @@ const Main = () => {
     <div className="Main">
       <div className="MainHeader">
         <div className="logo">
-          <img src="./mainlogo.svg" />
+          <img src="/mainlogo.svg" />
         </div>
         <div>
           <form>
@@ -40,7 +40,7 @@ const Main = () => {
         </div>
         <div>
           <button className="mypageBtn" onClick={() => navigate("/mypage")}>
-            <img src={getToken() ? "mypage_blue.png" : "./mypage.png"} />
+            <img src={getToken() ? "/mypage_blue.png" : "/mypage.png"} />
           </button>
         </div>
       </div>
