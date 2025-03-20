@@ -3,6 +3,7 @@ import "./UserLogin.css";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { setToken } from "../../utils/authUtils";
+import { errorToast } from "../../components/ui/ToastFunctions";
 
 
 const UserLogin = () => {
@@ -27,14 +28,13 @@ const UserLogin = () => {
         throw new Error(data.message);
       }
 
-      console.log("로그인 성공:", data);
       setToken(data.token);
 
       const redirectTo = location.state?.from?.pathname || "/";
       navigate(redirectTo);
     } catch (error) {
       console.error(error);
-      alert(error.message);
+      errorToast(error.message);
     }
   };
 
@@ -70,10 +70,10 @@ const UserLogin = () => {
           회원가입
         </a>
         <div className="footer">
-          <a href="/#">이용약관</a>
-          <a href="/#">개인정보처리방침</a>
-          <a href="/#">공지사항</a>
-          <a href="/#">쿠키정책</a>
+          <a href="/login">이용약관</a>
+          <a href="/login">개인정보처리방침</a>
+          <a href="/login">공지사항</a>
+          <a href="/login">쿠키정책</a>
         </div>
       </div>
     </div>

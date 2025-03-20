@@ -3,11 +3,13 @@ import "./UserRegister.css";
 import { useState } from "react";
 import { successToast, errorToast } from "../../components/ui/ToastFunctions";
 import useValidation from "../../hooks/useValidation";
+import { useNavigate } from "react-router-dom";
 
 
 
 const UserRegister = () => {
   const { errors, validate } = useValidation();
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -46,6 +48,8 @@ const UserRegister = () => {
       const data = await response.json();
       console.log("회원가입 성공:", data);
       successToast(`🎉 ${data.nickname}님 회원가입 축하합니다!`);
+      navigate("/login");
+
     } catch (error) {
       console.error("에러 발생:", error);
       errorToast("회원가입에 실패하였습니다. 다시 시도해주세요.");

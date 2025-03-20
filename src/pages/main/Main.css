@@ -12,7 +12,7 @@
     padding:13px 13px 0 0;
 }
 .searchBox {
-    background-image:url(search.png);
+    background-image:url(../../../public/search.png);
     background-repeat: no-repeat;
     padding:18px 30px;
     background-position: 5px;
@@ -44,7 +44,7 @@
         padding:13px 13px 0 0;
     }
     .searchBox {
-        background-image:url(search.png);
+        background-image:url(./search.png);
         background-repeat: no-repeat;
         background-position: 5px;
         border-radius: 8px;
