@@ -20,8 +20,10 @@ const Main = () => {
   return (
     <div className="Main">
       <div className="MainHeader">
-        <div className="logo">
-          <img src="/mainlogo.svg" />
+        <div className="logo" onClick={() => {
+       navigate("/");
+     }}>
+          <img src="/mainlogo.svg" alt="mainLogo"/>
         </div>
         <div>
           <form>

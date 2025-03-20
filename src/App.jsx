@@ -32,7 +32,6 @@ function App() {
     const isLogout = localStorage.getItem("isLogout");
 
  if (!token && isLogout !== "true") { 
-      errorToast("세션이 만료, 다시 로그인해주세요.");
       removeToken();
       navigate("/login");
     }

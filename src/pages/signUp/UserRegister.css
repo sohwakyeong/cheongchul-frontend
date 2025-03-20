@@ -93,11 +93,13 @@
     border-radius: 7px;
     font-size: 18px;
     cursor: pointer;
-    transition: background 0.3s, color 0.3s;
+    transition: background 0.2s, box-shadow 0.2s;
   }
   
   .registerSubmitBtn:hover {
-    background-color: #f9fafc;
-    color: #666;
+    background-color: #466cd7;
   }
-  
+  .registerSubmitBtn:active {
+    background-color: #3a5bb5;
+    box-shadow: inset 0px 3px 5px rgba(0, 0, 0, 0.2);
+}

@@ -67,10 +67,14 @@
     border-radius: 7px;
     font-size: 18px;
     cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
   }
   .saveProfile:hover {
-    background-color:#F9FAFC;
-    color: #666;
+    background-color: #466cd7;
   }
-  
+
+  .saveProfile:active {
+    background-color: #3a5bb5;
+    box-shadow: inset 0px 3px 5px rgba(0, 0, 0, 0.2);
+  }
   

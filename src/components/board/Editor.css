@@ -52,6 +52,13 @@
 .createBtn {
   background-color: #5785fa;
   color: white;
+  
+}
+.createBtn:hover {
+  background-color: #466cd7;
+}
+.cancleBtn:hover{
+  background-color:  rgba(0, 0, 0, 0.1);
 }
 
 

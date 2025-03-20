@@ -91,3 +91,9 @@
     background-color: #f9fafc;
     color: #666;
 }
+
+@media screen and (max-width: 480px) {
+    .bannerMessage {
+      font-size: 12px;
+    }
+  }

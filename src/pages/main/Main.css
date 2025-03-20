@@ -10,6 +10,7 @@
 .logo {
     vertical-align: baseline;
     padding:13px 13px 0 0;
+    cursor: pointer;
 }
 .searchBox {
     background-image:url(/search.png);
@@ -42,6 +43,7 @@
     .logo {
         vertical-align: baseline;
         padding:13px 13px 0 0;
+        cursor: pointer;
     }
     .searchBox {
         background-image:url(./search.png);

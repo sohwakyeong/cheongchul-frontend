@@ -47,18 +47,19 @@
   }
   .chatDate {
     font-size: 14px;
-    color: #999;
+    color: #5785FA
   }
   .lastMessage {
     font-size: 16px;
     color:#666;
     margin-top: 5px;
+    max-width: 220px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   .noDataChat{
-    margin-top: 250px;
+    margin-top: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,3 +75,19 @@
     color: #938f8f;
     text-align: center;
   }
+ 
+.deleteChatBtn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s;
+    margin-left: 10px;
+  }
+  
+  .deleteChatBtn:hover {
+    color: #ff4d4d;
+  }
+  
