@@ -65,6 +65,7 @@
     text-align: start;
     line-height: 1.6;
     font-size: 1rem;
+    white-space: pre-wrap;
 }
 .activeBtn {
     display: flex;
