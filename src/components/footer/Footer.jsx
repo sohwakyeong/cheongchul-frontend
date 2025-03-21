@@ -23,7 +23,7 @@ const Footer = () => {
       </div>
       <div className="footerIcon" onClick={() => navigate("/allchats")}>
         <img
-          src={changeIcon("/chat", "/chat_blue.png", "/chat.png")}
+          src={changeIcon("/allchats", "/chat_blue.png", "/chat.png")}
           alt="chat"
         />
       </div>

@@ -11,6 +11,14 @@ const BookmarkBoards = ({setBookmarkCount}) => {
         fetchBookmarkData();
     },[]);
 
+    const options = [
+      { value: "korean", label: "국어" },
+      { value: "english", label: "영어" },
+      { value: "math", label: "수학" },
+      { value: "science", label: "과학" },
+      { value: "society", label: "사회" },
+    ];
+
     const handleItemsClick = (boardId) => {
         const accessToken = localStorage.getItem("accessToken");
         if (!accessToken) {
@@ -44,7 +52,7 @@ const BookmarkBoards = ({setBookmarkCount}) => {
             <div className="universityIdentify">
               <img
                 className="uniLogoImage"
-                src={item.universityImg?item.universityImg:"/defaultUnilogo.png"}
+                src={item.universityImgUrl?item.universityImgUrl:"/defaultUnilogo.png"}
                 alt="uniLogoImage"
               />
             </div>
@@ -58,7 +66,8 @@ const BookmarkBoards = ({setBookmarkCount}) => {
                   src="/subject.png"
                   alt="subjectSymbol"
                 />
-                전문과목: {item.category}
+                전문과목: {options.find((opt) => opt.value === item.category)
+                ?.label || "알 수 없음"}
               </p>
             </div>
             <div className="bookMark">
