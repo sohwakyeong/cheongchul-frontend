@@ -1,103 +1,41 @@
-# cheil-switch-server
+# 청출어람 🌱
 
-##  Pull Request
-- main brach와 dev branch로 나누어 작업
-- dev branch 작업 후, 테스트 완료 후, main branch PR
+> 대학생과 수험생을 연결하는 과외 매칭 플랫폼
 
-[//]: # (### Flow&#40;예시&#41;)
+- **개발 기간**: 2025년 1월 ~ 3월
+- **배포 주소**: [https://www.cheongchul-eolam.shop](https://www.cheongchul-eolam.shop)
 
-[//]: # (1. 작업 전, 로컬 브랜치 최신화 &#40;git pull origin main&#41;)
+---
 
-[//]: # (2. 작업 후, add + commit &#40;git add + git commit -m "{Commit Message_하단 참조}")
+## 💡 프로젝트 개요
 
-[//]: # (3. 원격 브랜치&#40;main X&#41;에 push &#40;git push origin Junbo&#41;)
+`청출어람`은 대학생과 수험생을 연결하여, 과외를 원하는 유저와 제공 가능한 유저가 실시간으로 소통하고 매칭할 수 있는 플랫폼입니다.
 
-[//]: # (4. GitHub Pull Request 생성&#40;main <- Junbo&#41;)
+---
 
-[//]: # (5. 팀원 확인 후, merge)
+## 🛠️ 사용 기술 스택
 
-[//]: # (6. 위 작업 반복)
+- **Back-End**: Spring Boot, Spring Security, WebSocket, STOMP.js, MySQL
+- **Front-End**: React, React Query, Zustand
 
-##  Commit  Convention
+---
 
-|Message|설명|
-|:---:|:---|
-|feat|새로운 기능 추가|
-|fix|버그 수정|
-|docs|문서 수정|
-|style|코드 포맷팅, 세미콜론 누락, 코드 변경이 없는 경우|
-|refactor|코드 리팩토링|
-|test|테스트 코드|
-|chore |빌드 업무 수정, 패키지 매니저 수정|
+## ✨ 주요 기능
 
-[//]: # (### Jira 이슈 연동)
+- 🔐 **로그인 / 회원가입**
+- 📝 **게시글 작성 / 수정 / 삭제**
+- 💬 **실시간 채팅** (WebSocket + STOMP.js)
+- 📌 **북마크 기능**
+- 🔗 **링크 공유 기능**
 
-[//]: # (1. Jira 프로젝트의 해당 이슈 티켓 번호 확인        ex&#41; SMWA-2)
+---
 
-[//]: # (2. 작업 후, 커밋 메시지 앞에 해당 티켓 번호 포함하여 작성 ex&#41; git commit -m "SMWA-2 docs: update README.md")
+## 📷 대표 이미지
 
-[//]: # (   &#40;티켓번호를 포함해서 브랜치 생성/연동 도 가능&#41;)
-
-package-lock.json
-├── package.json
-├── public
-│   ├── Logout.png
-│   ├── accountLogo.png
-│   ├── banner1.png
-│   ├── banner2.png
-│   ├── banner3.png
-│   ├── bookMark.png
-│   ├── bookMarkFalse.png
-│   ├── english.png
-│   ├── icons.png
-│   ├── korean.png
-│   ├── logo.png
-│   ├── math.png
-│   ├── science.png
-│   ├── search.png
-│   ├── seoulu.png
-│   ├── society.png
-│   ├── subject.png
-│   └── user.png
-├── src
-│   ├── App.css
-│   ├── App.jsx
-│   ├── assets
-│   ├── components
-│   │   ├── Editor.css
-│   │   ├── Editor.jsx
-│   │   ├── FilterOptions.css
-│   │   ├── FilterOptions.jsx
-│   │   ├── Footer.jsx
-│   │   ├── GoogleLoginBtn.css
-│   │   ├── GoogleLoginBtn.jsx
-│   │   ├── MainCategory.css
-│   │   ├── MainCategory.jsx
-│   │   ├── MainSwiper.css
-│   │   ├── MainSwiper.jsx
-│   │   ├── PageHeader.css
-│   │   ├── PageHeader.jsx
-│   │   ├── TutoringItems.css
-│   │   └── TutoringItems.jsx
-│   ├── hooks
-│   │   └── useFetch.jsx
-│   ├── index.css
-│   ├── main.jsx
-│   ├── pages
-│   │   ├── Main.css
-│   │   ├── Main.jsx
-│   │   ├── MyPage.css
-│   │   ├── MyPage.jsx
-│   │   ├── NotFound.jsx
-│   │   ├── OAuthPage.jsx
-│   │   ├── TutoringCreate.css
-│   │   ├── TutoringCreate.jsx
-│   │   ├── TutoringDetail.jsx
-│   │   ├── UserLogin.css
-│   │   ├── UserLogin.jsx
-│   │   ├── UserProfile.css
-│   │   ├── UserProfile.jsx
-│   │   └── UserSignup.jsx
-│   └── utils
-│       └── decodeJwt.jsx
-└── vite.config.js
+![청출어람 메인](https://github.com/sohwakyeong/Data/blob/main/ch1.png?raw=true)
+![청출어람 로그인](https://github.com/sohwakyeong/Data/blob/main/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202025-03-23%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2011.52.24.png?raw=true)
+![청출어람 채팅목록](https://github.com/sohwakyeong/Data/blob/main/ch3.png?raw=true)
+![청출어람 채팅](https://github.com/sohwakyeong/Data/blob/main/ch4.png?raw=true)
+![청출어람 마이페이지](https://github.com/sohwakyeong/Data/blob/main/ch6.png?raw=true)
+![청출어람 게시글작성](https://github.com/sohwakyeong/Data/blob/main/ch5.png?raw=true)
+![청출어람 게시글](https://github.com/sohwakyeong/Data/blob/main/ch7.png?raw=true)
