@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { Routes, Route,useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./App.css";
 import Main from "./pages/main/Main";
@@ -20,23 +20,44 @@ import { getToken, removeToken } from "./utils/authUtils";
 import RequireToken from "./utils/RequireToken";
 import ToastNotification from "./components/ui/ToastNotification";
 import { errorToast } from "./components/ui/ToastFunctions";
-
+import SockJS from "sockjs-client";
+import Stomp from "stompjs";
 
 function App() {
   const queryClient = new QueryClient();
   const { fetchData } = useFetch();
   const navigate = useNavigate();
 
+
+  const [stompClient, setStompClient] = useState(null);
+  const [isSocketConnected, setIsSocketConnected] = useState(false);
+
+  useEffect(() => {
+
+    const socket = new SockJS("/api/ws");
+    const client = Stomp.over(socket);
+
+    client.connect({}, () => {
+      setStompClient(client);
+      setIsSocketConnected(true);
+    });
+
+    return () => {
+      if (client) {
+        client.disconnect();
+      }
+    };
+  }, []);
+
   useEffect(() => {
     const token = getToken(); 
     const isLogout = localStorage.getItem("isLogout");
 
- if (!token && isLogout !== "true") { 
+    if (!token && isLogout !== "true") { 
       removeToken();
       navigate("/login");
     }
   }, [navigate]);
-
 
   const onCreate = async ({ title, content, category }) => {
     const postData = { title, content, category };
@@ -46,17 +67,15 @@ function App() {
       postData
     );
     if (result.status === 201) {
-      navigate(`/detail/${result.data.boardId}`)
-    } else if (result.status >= 400) {
-      errorToast("글 작성이 실패하였습니다.");
+      navigate(`/detail/${result.data.boardId}`);
     } else {
       errorToast("글 작성이 실패하였습니다.");
     }
   };
 
   return (
-      <QueryClientProvider client={queryClient}>
-     <ToastNotification />
+    <QueryClientProvider client={queryClient}>
+      <ToastNotification />
       <Routes>
         <Route
           path="/"
@@ -71,7 +90,7 @@ function App() {
           element={
             <Layout>
               <RequireToken>
-              <MyPage />
+                <MyPage />
               </RequireToken>
             </Layout>
           }
@@ -81,28 +100,29 @@ function App() {
           path="/create"
           element={
             <Layout>
-               <RequireToken>
-               <TutoringCreate onCreate={onCreate} />
-               </RequireToken>
+              <RequireToken>
+                <TutoringCreate onCreate={onCreate} />
+              </RequireToken>
             </Layout>
           }
         />
-         <Route
+        <Route
           path="/detail/:id/edit"
           element={ 
             <Layout>
               <RequireToken>
-              <BoardUpdate />
+                <BoardUpdate />
               </RequireToken>
             </Layout>
-          }/>
+          }
+        />
         <Route
           path="/detail/:id"
           element={
             <RequireToken>
-            <Layout>
-              <TutoringDetail />
-            </Layout>
+              <Layout>
+                <TutoringDetail />
+              </Layout>
             </RequireToken>
           }
         />
@@ -127,19 +147,21 @@ function App() {
           element={ 
             <Layout>
               <RequireToken>
-              <AllChats />
+                <AllChats />
               </RequireToken>
             </Layout>
-          }/>
-           <Route
+          }
+        />
+        <Route
           path="/chat/:id"
           element={ 
             <Layout>
               <RequireToken>
-              <Chat />
+                <Chat stompClient={stompClient} isSocketConnected={isSocketConnected} />
               </RequireToken>
             </Layout>
-          }/>
+          }
+        />
         <Route path="*" element={<Notfound />} />
       </Routes>
     </QueryClientProvider>

@@ -2,12 +2,10 @@ import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import PageHeader from "../../components/header/PageHeader";
 import "./Chat.css";
-import SockJS from "sockjs-client";
-import Stomp from "stompjs";
 import useLoadingStore from "../../store/useLoadingStore";
 import LoadingSpinner from "../../components/ui/LoadingSpinner";
 
-const Chat = () => {
+const Chat = ({ stompClient, isSocketConnected }) => {
   const { id } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -17,8 +15,6 @@ const Chat = () => {
 
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
-  const [stompClient, setStompClient] = useState(null);
-  const [isSocketConnected, setIsSocketConnected] = useState(false);
 
   const formatCreatedAt = (createdAt) => {
     let hours;
@@ -42,7 +38,7 @@ const Chat = () => {
     }
 
     const loadMessages = async () => {
-      setLoading(true); // 데이터 로딩 시작
+      setLoading(true);
       try {
         const response = await fetch(`/api/chat/messages/${id}`);
         if (!response.ok) {
@@ -59,26 +55,18 @@ const Chat = () => {
 
     loadMessages();
 
-    const socket = new SockJS("/api/ws");
-    const client = Stomp.over(socket);
-
-    client.connect({}, () => {
-      client.subscribe(`/topic/chat/${chatRoom.chatRoomId}`, (message) => {
-        const chatMessage = JSON.parse(message.body);
-        setMessages((prevMessages) => [...prevMessages, chatMessage]);
+    if (stompClient && isSocketConnected) {
+      stompClient.connect({}, () => {
+        stompClient.subscribe(
+          `/topic/chat/${chatRoom.chatRoomId}`,
+          (message) => {
+            const chatMessage = JSON.parse(message.body);
+            setMessages((prevMessages) => [...prevMessages, chatMessage]);
+          }
+        );
       });
-
-      setIsSocketConnected(true);
-    });
-
-    setStompClient(client);
-
-    return () => {
-      if (client) {
-        client.disconnect();
-      }
-    };
-  }, [chatRoom, id, navigate, setLoading]);
+    }
+  }, [chatRoom, id, stompClient, isSocketConnected, navigate, setLoading]);
 
   const handleSend = () => {
     if (newMessage && stompClient) {
